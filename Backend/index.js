@@ -1,7 +1,8 @@
-import express from "express";
+import express, { response } from "express";
 import mongoose from "mongoose";
-import { PORT } from "./config.js";
+import { PORT, mongoDBURL } from "./config.js";
 import { Ride } from './models/rideModel.js'
+import ridesRoute from './routes/ridesRoute.js'
 
 const app = express();
 
