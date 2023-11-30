@@ -27,6 +27,9 @@ const rideSchema = mongoose.Schema(
             type: Array,
             required: false,
         }
+    },
+    {
+        timestamps: true,
     }
 )
 
