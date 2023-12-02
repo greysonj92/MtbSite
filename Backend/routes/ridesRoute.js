@@ -46,6 +46,22 @@ router.get('/', async (request, response) => {
     }
 })
 
+// Route to get last n rides posted to DB
+router.get('/last/:count', async (request, response) => {
+    try {
+        const {count} = request.params;
+        console.log(count)
+        const rides = await Ride.find().sort({$natural: -1}).limit(count);
+        return response.status(200).json({
+            count: rides.length,
+            data: rides
+        });
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message});
+    }
+})
+
 // Route to get an estimated number of rides in the Rides collection
 router.get('/count', async (request, response) => {
     try {

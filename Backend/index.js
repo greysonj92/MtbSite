@@ -3,11 +3,15 @@ import mongoose from "mongoose";
 import { PORT, mongoDBURL } from "./config.js";
 import { Ride } from './models/rideModel.js'
 import ridesRoute from './routes/ridesRoute.js'
+import cors from 'cors';
 
 const app = express();
 
 // Middleware for parsing request body
 app.use(express.json());
+
+// Middleware for handling CORS policy
+app.use(cors());
 
 // HTTP GET '/', just a test that this works
 app.get('/', (request, response) => {
@@ -15,7 +19,6 @@ app.get('/', (request, response) => {
     return response.status(234).send('/ Works!');
 });
 
-// TODO: implement this router
 app.use('/rides', ridesRoute);
 mongoose
     // TODO: add the mongoDBURL constant to config.js
