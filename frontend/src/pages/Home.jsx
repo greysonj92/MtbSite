@@ -18,36 +18,38 @@ const Home = () => {
         });
     }, []);
     return (
-    <div>
-        <h1>Five Most Recent Rides</h1>
-        <table >
+    <div className="flex">
+        <div>Five Most Recent Rides</div>
+        <div>
+        <table className='w-full border-separate border-spacing-3 rounded-xl conten-end'>
             <thead>
                 <tr>
-                    <th>Rider Name</th>
-                    <th>Trail Name</th>
-                    <th>Trail Difficulty</th>
-                    <th>Ride Date</th>
+                    <th className='border border-orange-600 rounded-md'>Rider Name</th>
+                    <th className='border border-orange-600 rounded-md'>Trail Name</th>
+                    <th className='border border-orange-600 rounded-md'>Trail Difficulty</th>
+                    <th className='border border-orange-600 rounded-md'>Ride Date</th>
                 </tr>
             </thead>
             <tbody>
                 {rides.map((ride, index) => (
                     <tr key={ride._id}>
-                        <td>
+                        <td className='border border-slate-700 rounded-md text-center'>
                             {ride.riderName}
                         </td>
-                        <td>
+                        <td className='border border-slate-700 rounded-md text-center'>
                             {ride.trailName}
                         </td>
-                        <td>
+                        <td className='border border-slate-700 rounded-md text-center'>
                             {ride.trailDifficulty}
                         </td>
-                        <td>
+                        <td className='border border-slate-700 rounded-md text-center'>
                             {ride.rideDate}
                         </td>
                     </tr>
                 ))}
             </tbody>
         </table>
+        </div>
     </div>
   );
 };
